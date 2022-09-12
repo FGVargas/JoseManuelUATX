@@ -8,20 +8,19 @@
 
                 <div class="panel-body bg-warning">
                     <div>
-                        <div class="alert alert-success text-center"> Listado empleados</div>
+                        <div class="alert alert-success font-weight-bold text-center"> Listado empleados</div>
                     </div>
                     @if(\Illuminate\Support\Facades\Session::has('success'))
                         <div class="alert alert-danger">
                             {{\Illuminate\Support\Facades\Session::get('success')}}
                         </div>
                     @endif
-
                     <div class="pull-right">
-                    <a href="{{ route('empleado.create')}}" class="btn btn-info">Agregar Empleado</a><br><br>
+                    <a href="{{ route('empleado.create')}}" class="btn btn-success">Agregar Empleado</a><br><br>
                     </div>
 
                     <div class="table-container">
-                        <table id="tablaEmpleados" class="table table-bordered table-striped bg-success">
+                        <table id="tablaEmpleados" class="table table-bordered table-striped bg-danger">
                             <thead>
                             <th>Codigo empleado</th>
                             <th>Nombre</th>
@@ -40,8 +39,8 @@
                                         <td>{{ $empleado->email }}</td>
                                         <td>
                                             <a class="btn btn-primary btn-xs" href="{{route('empleado.show', $empleado->id)}}" ><span class="glyphicon glyphicon-eye-open"></span></a>
-                                            <a class="btn btn-sm btn-warning" href="{{route('empleado.edit',$empleado->id)}}">Editar</a>
-                                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-delete-{{$empleado->id}}">Eliminar</button>
+                                            <a class="btn btn-warning" href="{{route('empleado.edit',$empleado->id)}}">Editar</a>
+                                            <button type="button" class="btn  btn-danger" data-toggle="modal" data-target="#modal-delete-{{$empleado->id}}">Eliminar</button>
                                             @include('Empleado.modalEliminar')
                                         </td>
                                     </tr>

@@ -25,19 +25,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>{{ trans('forms.form_create.name') }}</label>
-                                        <input type="text" name="nombre" id="nombre" class="form-control input-sm" placeholder="Nombre del empleado" value="{{ old('nombre',$empleado->nombre) }}">
+                                        <input type="text" name="nombre" id="nombre" class="form-control input-sm" placeholder="Nombre" value="{{ old('nombre',$empleado->nombre) }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>{{ trans('forms.form_create.lastname_1') }}</label>
-                                        <input type="text" name="paterno" id="paterno" class="form-control input-sm" placeholder="Apellido paterno del empleado" value="{{ old('paterno',$empleado->paterno) }}">
+                                        <input type="text" name="paterno" id="paterno" class="form-control input-sm" placeholder="Apellido paterno" value="{{ old('paterno',$empleado->paterno) }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>{{ trans('forms.form_create.lastname_2') }}</label>
-                                        <input type="text" name="materno" id="materno" class="form-control input-sm" placeholder="Apellido materno del empleado" value="{{ old('materno',$empleado->materno) }}">
+                                        <input type="text" name="materno" id="materno" class="form-control input-sm" placeholder="Apellido materno " value="{{ old('materno',$empleado->materno) }}">
                                     </div>
                                 </div>
                             </div>
@@ -46,13 +46,13 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>{{ trans('forms.form_create.email') }}</label>
-                                        <input type="email" name="email" id="email" class="form-control input-sm" placeholder="example@algo.com" value="{{ old('email',$empleado->email) }}">
+                                        <input type="email" name="email" id="email" class="form-control input-sm" placeholder="sft@example.com" value="{{ old('email',$empleado->email) }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>{{ trans('forms.form_create.telephone') }}</label>
-                                        <input type="tel" name="telefono" id="telefono" class="form-control input-sm" placeholder="246 000 00 00" value="{{ old('telefono',$empleado->telefono) }}">
+                                        <input type="tel" name="telefono" id="telefono" class="form-control input-sm" placeholder="2228498421" value="{{ old('telefono',$empleado->telefono) }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -64,13 +64,13 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>{{ trans('forms.form_create.address') }}</label>
-                                        <input type="text" name="direccion" id="direccion" class="form-control input-sm" placeholder="Av Siempre Viva #27" value="{{ old('direccion', $empleado->direccion)}}">
+                                        <input type="text" name="direccion" id="direccion" class="form-control input-sm" placeholder="Dolores #6" value="{{ old('direccion', $empleado->direccion)}}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label> {{ trans('forms.form_create.salary') }} </label>
-                                        <input type="number" name="salario" id="salario" class="form-control input-sm" placeholder="Salario del empleado" value="{{ old('salario', $empleado->salario) }}">
+                                        <input type="number" name="salario" id="salario" class="form-control input-sm" placeholder="Salario" value="{{ old('salario', $empleado->salario) }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -105,7 +105,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-12 ">
+                                <div class="col-md-12">
                                     <button type="submit" class="btn btn-success" >Guardar</button>
                                     <a href="{{ route('empleado.index')  }}" class="btn btn-danger"> Atras</a>
                                 </div>

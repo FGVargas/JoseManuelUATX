@@ -25,11 +25,11 @@ Route::post('/empleado/store', 'EmpleadoController@store')->name('empleado.store
 
 Route::get('/empleado/{empleado}/show', 'EmpleadoController@show')->name('empleado.show');
 
-Route::get('/empleado/create','EmpleadoController@create')->name('empleado.create');
+Route::get('/empleado/create','EmpleadoController@create')->name('empleado.create')->middleware("editDeleteInsert.admin");;
 
-Route::delete('/empleado/{empleado}','EmpleadoController@destroy')->name('empleado.destroy');
+Route::delete('/empleado/{empleado}','EmpleadoController@destroy')->name('empleado.destroy')->middleware("editDeleteInsert.admin");;
 
-Route::get('/empleado/{empleado}/edit','EmpleadoController@edit')->name('empleado.edit');
+Route::get('/empleado/{empleado}/edit','EmpleadoController@edit')->name('empleado.edit')->middleware("editDeleteInsert.admin");
 
 Route::put('/empleado/{empleado}','EmpleadoController@update')->name('empleado.update');
 
@@ -51,7 +51,3 @@ Route::get('datoContacto/{datoContacto}/edit','DatoContactoController@edit')->na
 Route::put('datoContacto/{datoContacto}','DatoContactoController@update')->name('datoContacto.update');
 
 Route::delete('datoContacto/{datoContacto}/{empleadoId}','DatoContactoController@destroy')->name('datoContacto.destroy');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

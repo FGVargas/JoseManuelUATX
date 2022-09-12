@@ -107,7 +107,9 @@ class EmpleadoController extends Controller
     public function show($id)
     {
         $empleado = Empleado::find($id);
-        return view('Empleado.show',compact('empleado'));
+        $estadosWS = $this->wsEstados();
+        $listEstados = ((array)$estadosWS->data)['lst_estado_proveedor'];
+        return view('Empleado.show',compact('empleado','listEstados'));
     }
 
     /**
@@ -172,5 +174,11 @@ class EmpleadoController extends Controller
         $client = new HttpClient(['base_uri' => 'https://fx.currencysystem.com/webservices/CurrencyServer5.asmx/','verify' => false]);
         $response = $client->request('GET',"AllCurrencies",['query' => 'licenseKey=']);
         return xmlrpc_decode($response->getBody()->getContents());
+    }
+
+    public function wsEstados(){
+        $client = new HttpClient(['base_uri' => 'https://beta-bitoo-back.azurewebsites.net/api/','verify' => false]);
+        $response = $client->request('POST','proveedor/obtener/lista_estados');
+        return json_decode($response->getBody());
     }
 }

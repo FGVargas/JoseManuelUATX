@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\DatoContacto;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client as HttpClient;
 
 class DatoContactoController extends Controller
 {
+    public function __construct()
+    {
+        //Linea para agregar un Middleware a las funciones del controlador
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +21,6 @@ class DatoContactoController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -21,9 +28,9 @@ class DatoContactoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($empleadoId)
     {
-        //
+        return view('DatoContacto.create',compact('empleadoId'));
     }
 
     /**
@@ -34,7 +41,32 @@ class DatoContactoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+
+        $this->validate($request,[
+            'nombre_contacto' => 'required',
+            'email' => 'required|email',
+            'telefono' => 'required|numeric',
+            'direccion' => 'required',
+            'ciudad' => 'required',
+            'estado'=> 'required',
+            'cp' => 'required'
+        ]);
+
+        $arraySave =[
+            'empleado_id' => $request->get("empleado_id"),
+            'nombre_contacto' => $request->get("nombre_contacto"),
+            'email' => $request->get('email'),
+            'telefono' => $request->get('telefono'),
+            'direccion' => $request->get('direccion'),
+            'ciudad' => $request->get('ciudad'),
+            'estado' => $request->get('estado'),
+            'cp' => $request->get('cp'),
+        ];
+
+        DatoContacto::create($arraySave);
+
+        return redirect()->route('empleado.show', $request->get('empleado_id'))->with('success','Registro creado satisfactoriamente');
     }
 
     /**
@@ -45,7 +77,7 @@ class DatoContactoController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -56,7 +88,7 @@ class DatoContactoController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -68,7 +100,7 @@ class DatoContactoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -77,8 +109,10 @@ class DatoContactoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,$empleado_id)
     {
-        //
+        DatoContacto::where('id',$id)->update(['eliminado' => 1]);
+        return redirect()->route('empleado.show', $empleado_id)->with('success','Registro eliminado satisfactoriamente');
     }
+
 }

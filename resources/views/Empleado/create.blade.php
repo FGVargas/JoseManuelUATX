@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <section class="content">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2" >
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -15,7 +15,7 @@
                 @endif
                 <div class="panel panel-primary text-center">
                     <div class="panel-heading">
-                        <h3 class=""> Agregar Empleado</h3>
+                        <h3 class="panel-title"> Agregar Empleado</h3>
                     </div>
                     <div class="panel-body">
                         <form method="POST" action="{{route('empleado.store')}}">
@@ -25,19 +25,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label> {{ trans('forms.form_create.name') }} </label>
-                                        <input type="text" name="nombre" id="nombre" class="form-control input-sm" placeholder="Nombre empleado" value="{{ old('nombre') }}">
+                                        <input type="text" name="nombre" id="nombre" class="form-control input-sm" placeholder="Nombre" value="{{ old('nombre') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label> {{ trans('forms.form_create.lastname_1') }} </label>
-                                        <input type="text" name="paterno" id="paterno" class="form-control input-sm" placeholder="Apellido paterno" value="{{ old('paterno') }}">
+                                        <input type="text" name="paterno" id="paterno" class="form-control input-sm" placeholder="Apellido paterno " value="{{ old('paterno') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label> {{ trans('forms.form_create.lastname_2') }} </label>
-                                        <input type="text" name="materno" id="materno" class="form-control input-sm" placeholder="Apellido materno" value="{{ old('materno') }}">
+                                        <input type="text" name="materno" id="materno" class="form-control input-sm" placeholder="Apellido materno " value="{{ old('materno') }}">
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label> {{ trans('forms.form_create.telephone') }} </label>
-                                        <input type="number" name="telefono" id="telefono" class="form-control input-sm" placeholder="2228498421" value="{{ old('telefono') }}">
+                                        <input type="tel" name="telefono" id="telefono" class="form-control input-sm" placeholder="222-849-8421" value="{{ old('telefono') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -64,7 +64,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label> {{ trans('forms.form_create.address') }} </label>
-                                        <input type="text" name="direccion" id="direccion" class="form-control input-sm" placeholder="Dlores #6" value="{{ old('direccion') }}">
+                                        <input type="text" name="direccion" id="direccion" class="form-control input-sm" placeholder="Dolores #6" value="{{ old('direccion') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -87,7 +87,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label> {{ trans('forms.form_create.code') }} </label>
-                                        <input type="number" name="codigo_empleado" id="codigo_empleado" class="form-control input-sm" placeholder="1" value="{{ old('codigo_empleado') }}">
+                                        <input type="text" name="codigo_empleado" id="codigo_empleado" class="form-control input-sm" placeholder="1" value="{{ old('codigo_empleado') }}">
                                     </div>
                                 </div>
                             </div>

@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    {{trans('app.home.logged_in')}}
                 </div>
             </div>
         </div>

@@ -15,9 +15,9 @@
                     </div>
                 @endif
 
-                <div class="panel panel-primary">
+                <div class="panel panel-primary text-center">
                     <div class="panel-heading">
-                        <h3> Datos de empleado</h3>
+                        Datos de empleado
                     </div>
 
                     <div class="panel-body">
@@ -77,7 +77,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>{{ trans('forms.form_create.salary') }}: {{$empleado->salario}}</label>
+                                    <label>{{ trans('forms.form_create.salary') }}: {{$empleado->salario}}  {{$empleado->tipo_moneda}}</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -123,7 +123,7 @@
                                                     <td>{{ $dc->direccion }}</td>
                                                     <td>{{ $dc->ciudad }}</td>
                                                     <td>
-                                                        @foreach($estadosList as $estado)
+                                                        @foreach($listEstados as $estado)
                                                             {{ $dc->estado == $estado->id_estado ? $estado->nombre : '' }}
                                                         @endforeach
                                                     </td>
@@ -145,9 +145,9 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-lg-1">
-                                <a href="{{ route('empleado.index') }}" class="btn btn-default btn-sm">Atras</a>
+                        <div class="row text-center">
+                            <div class="col-lg-12">
+                                <a href="{{ route('empleado.index') }}" class="btn btn-danger">Atras</a>
                             </div>
                         </div>
 
